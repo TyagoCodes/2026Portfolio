@@ -14,7 +14,7 @@ export default function LaptopModelDebug() {
             LaptopRotY: { value: -0.22, min: -Math.PI, max: Math.PI, step: 0.01 },
             LaptopRotZ: { value: 0.01, min: -Math.PI, max: Math.PI, step: 0.01 },
         },
-        { collapsed: false }
+        { collapsed: true }
     )
 
     return (
@@ -26,11 +26,11 @@ export default function LaptopModelDebug() {
             <Html
                 transform
                 distanceFactor={1.2}
-                position={[0.24,0.8,2.0]}
+                position={[0,0,0]}
             >
-                <div className={"bg-cyan-400 text-"}>
-                   <h1>Test</h1>
-                </div>
+                {/*<div className={"bg-cyan-400 text-"}>*/}
+                {/*   <h1>Laptop Screen html test</h1>*/}
+                {/*</div>*/}
             </Html>
 
             <LaptopModel/>

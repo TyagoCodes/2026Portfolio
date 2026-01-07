@@ -14,7 +14,7 @@ export default function LaptopScreen() {
             }}
         >
             <div style={{ color: '#00ffff', fontSize: '12px' }}>
-                Laptop Screen
+                <h1>Laptop Screen</h1>
             </div>
         </div>
     )

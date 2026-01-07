@@ -13,7 +13,7 @@ export default function BagDebug() {
             bagRotY: { value: -0.47, min: -Math.PI, max: Math.PI, step: 0.01 },
             bagRotZ: { value: 0, min: -Math.PI, max: Math.PI, step: 0.01 },
         },
-        { collapsed: false }
+        { collapsed: true }
     )
 
     return (

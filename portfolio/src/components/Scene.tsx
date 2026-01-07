@@ -8,6 +8,8 @@ import BagDebug from "./BagDebug.tsx";
 import BookDebug from "./BookDebug.tsx";
 // import LaptopModel from "./LaptopModel.tsx";
 import LaptopModelDebug from "./LaptopModelDebug.tsx";
+import ButterflyParticles from "./ButterflyParticles.tsx";
+import CoffeeSmoke from "./CoffeeSmoke.tsx";
 
 
 export default function Scene()
@@ -40,6 +42,12 @@ export default function Scene()
             <mesh>
                 <LaptopModelDebug/>
             </mesh>
+
+            {/*BUTTERFLY PARTICLES*/}
+            <ButterflyParticles/>
+
+            {/*COFFEE SMOKE*/}
+            <CoffeeSmoke/>
         </>
     )
 }
