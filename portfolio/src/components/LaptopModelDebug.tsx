@@ -3,25 +3,25 @@ import LaptopModel from "./LaptopModel.tsx";
 import {Html} from "@react-three/drei";
 
 export default function LaptopModelDebug() {
-    const { LaptopScale, LaptopPosX, LaptopPosY, LaptopPosZ, LaptopRotX, LaptopRotY, LaptopRotZ } = useControls(
+    const { Scale, PosX, PosY, PosZ, RotX, RotY, RotZ } = useControls(
         "Laptop Debug",
         {
-            LaptopScale: { value: 5.0, min: 0.1, max: 10, step: 0.1 },
-            LaptopPosX: { value: 0.24, min: -10, max: 10, step: 0.1 },
-            LaptopPosY: { value: 0.8, min: -10, max: 10, step: 0.1 },
-            LaptopPosZ: { value: 2.0, min: -10, max: 10, step: 0.1 },
-            LaptopRotX: { value: 0.00, min: -Math.PI, max: Math.PI, step: 0.01 },
-            LaptopRotY: { value: -0.22, min: -Math.PI, max: Math.PI, step: 0.01 },
-            LaptopRotZ: { value: 0.01, min: -Math.PI, max: Math.PI, step: 0.01 },
+            Scale: { value: 3.1, min: 0.1, max: 10, step: 0.1 },
+            PosX: { value: 0.556, min: -10, max: 10, step: 0.1 },
+            PosY: { value: 1.786, min: -10, max: 10, step: 0.1 },
+            PosZ: { value: 3.3, min: -10, max: 10, step: 0.1 },
+            RotX: { value: 0.26, min: -Math.PI, max: Math.PI, step: 0.01 },
+            RotY: { value: 1.56, min: -Math.PI, max: Math.PI, step: 0.01 },
+            RotZ: { value: -0.27, min: -Math.PI, max: Math.PI, step: 0.01 },
         },
-        { collapsed: true }
+        {collapsed: true}
     )
 
     return (
         <mesh
-            scale={[LaptopScale, LaptopScale, LaptopScale]}
-            position={[LaptopPosX, LaptopPosY, LaptopPosZ]}
-            rotation={[LaptopRotX, LaptopRotY, LaptopRotZ]}>
+            scale={[Scale, Scale, Scale]}
+            position={[PosX, PosY, PosZ]}
+            rotation={[RotX, RotY, RotZ]}>
 
             <Html
                 transform

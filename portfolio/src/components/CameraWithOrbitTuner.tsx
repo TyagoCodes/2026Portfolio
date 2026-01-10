@@ -19,8 +19,8 @@ export default function CameraWithOrbitTuner() {
             }),
             target: folder({
                 tx: { value: 0, min: -20, max: 20, step: 0.01 },
-                ty: { value: 0, min: -20, max: 20, step: 0.01 },
-                tz: { value: 0, min: -20, max: 20, step: 0.01 },
+                ty: { value: 1, min: -20, max: 20, step: 0.01 },
+                tz: { value: 1.43, min: -20, max: 20, step: 0.01 },
             }),
         },
         { collapsed: true }

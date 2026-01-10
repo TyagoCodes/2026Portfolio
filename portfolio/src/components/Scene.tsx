@@ -10,6 +10,7 @@ import BookDebug from "./BookDebug.tsx";
 import LaptopModelDebug from "./LaptopModelDebug.tsx";
 import ButterflyParticles from "./ButterflyParticles.tsx";
 import CoffeeSmoke from "./CoffeeSmoke.tsx";
+import Moon from "./Moon.tsx";
 
 
 export default function Scene()
@@ -39,15 +40,19 @@ export default function Scene()
             <BookDebug/>
 
             {/*LAPTOP*/}
-            <mesh>
-                <LaptopModelDebug/>
-            </mesh>
+            <LaptopModelDebug/>
 
             {/*BUTTERFLY PARTICLES*/}
             <ButterflyParticles/>
 
             {/*COFFEE SMOKE*/}
             <CoffeeSmoke/>
+
+            {/*MOON*/}
+            <Moon/>
+
+            {/*FOG*/}
+            <fogExp2 args={["#ffffff", 4]}/>
         </>
     )
 }

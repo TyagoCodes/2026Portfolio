@@ -48,7 +48,7 @@ export default  function CoffeeSmoke() {
     );
 
     return (
-        <mesh position={[-0.93,2.5,2.55]}>
+        <mesh position={[-0.42,2.5,2.5]}>
             <planeGeometry args={[0.38, 1, 128, 128]} />
             <primitive object={smokeMaterial} attach="material" />
         </mesh>

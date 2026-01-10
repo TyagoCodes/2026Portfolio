@@ -19,11 +19,11 @@ export default function SceneLights() {
     // POINT LIGHT
     const point = useControls("PointLight", {
         visible: { value: true },
-        color: { value: "#c6b566" },
-        intensity: { value: 10.00, min: 0, max: 60, step: 0.01 },
-        position: { value: [-0.1, 3.6, 1.6] as THREE.Vector3Tuple, step: 0.1 },
-        distance: { value: 7.1, min: 0, max: 100, step: 0.1 },
-        decay: { value: 1.7, min: 0, max: 5, step: 0.1 },
+        color: { value: "#dad1ab" },
+        intensity: { value: 11.11, min: 0, max: 60, step: 0.01 },
+        position: { value: [-0.1, 2.8, 1.6] as THREE.Vector3Tuple, step: 0.1 },
+        distance: { value: 5.1, min: 0, max: 100, step: 0.1 },
+        decay: { value: 0.6, min: 0, max: 5, step: 0.1 },
     },
         { collapsed: true },
     );
@@ -31,24 +31,38 @@ export default function SceneLights() {
     // SPOTLIGHT(s)
     const spot = useControls("SpotLight", {
         visible: { value: true },
-        color: { value: "#796a50" },
-        intensity: { value: 27.92, min: 0, max: 60, step: 0.01 },
-        position: { value: [-4.6, 0.2, 6.4] as THREE.Vector3Tuple, step: 0.1 },
-        target: { value: [-6.6, 2.2, 0.1] as THREE.Vector3Tuple, step: 0.1 },
-        distance: { value: 12.7, min: 0, max: 100, step: 0.1 },
-        decay: { value: 0.0, min: 0, max: 5, step: 0.1 },
-        angle: { value: 0.36, min: 0, max: Math.PI / 2, step: 0.01 },
-        penumbra: { value: 0.16, min: 0, max: 1, step: 0.01 },
+        color: { value: "#d1aa66" },
+        intensity: { value: 10.89, min: 0, max: 60, step: 0.01 },
+        position: { value: [-1.1, 7.0, 21.7] as THREE.Vector3Tuple, step: 0.1 },
+        target: { value: [0, 2, 0] as THREE.Vector3Tuple, step: 0.1 },
+        distance: { value: 33.4, min: 0, max: 100, step: 0.1 },
+        decay: { value: 1.0, min: 0, max: 5, step: 0.1 },
+        angle: { value: 0.52, min: 0, max: Math.PI / 2, step: 0.01 },
+        penumbra: { value: 0.57, min: 0, max: 1, step: 0.01 },
     },
         { collapsed: false },
+    );
+
+    const spotBook = useControls("SpotBook", {
+            visible: { value: true },
+            color: { value: "#a0832a" },
+            intensity: { value: 26.94, min: 0, max: 60, step: 0.01 },
+            position: { value: [3.2, 5.2, -1.6] as THREE.Vector3Tuple, step: 0.1 },
+            target: { value: [1.7, 0.2, -1.5] as THREE.Vector3Tuple, step: 0.1 },
+            distance: { value: 7.1, min: 0, max: 100, step: 0.1 },
+            decay: { value: 0.8, min: 0, max: 5, step: 0.1 },
+            angle: { value: 0.49, min: 0, max: Math.PI / 2, step: 0.01 },
+            penumbra: { value: 0.12,  min: 0, max: 1, step: 0.01 },
+        },
+        { collapsed: true },
     );
 
     // DIRECT
     const direct = useControls("DirectLight", {
             visible: { value: true },
             color: { value: "#010211" },
-            intensity: { value: 12.54, min: 0, max: 60, step: 0.01 },
-            position: { value: [1.9, 9.5, -17.2] as THREE.Vector3Tuple, step: 0.1 },
+            intensity: { value: 25.03, min: 0, max: 60, step: 0.01 },
+            position: { value: [-11.0, 8.9, -17.2] as THREE.Vector3Tuple, step: 0.1 },
 
         },
         { collapsed: true },
@@ -57,14 +71,22 @@ export default function SceneLights() {
     // Helper Consts
     const spotHelper = useControls("SpotLightHelper", {
             visible: { value: false },
-            color: { value: "#ff0000" },
+            color: { value: "#ffffff" },
+        },
+        { collapsed: false }
+    );
+
+    const spotBookHelper = useControls("SpotBookHelper", {
+            visible: { value: false },
+            size: {value: spotBook.intensity},
+            color: { value: "#e86b01" },
         },
         { collapsed: false }
     );
 
     const pointHelper = useControls("PointHelper", {
             visible: { value: false },
-            size: { value: 0.2, min: 0.01, max: 5, step: 0.01 },
+            size: { value: 0.6, min: 0.01, max: 5, step: 0.01 },
             color: {value: "#63ff00"},
         },
         { collapsed: true }
@@ -72,14 +94,15 @@ export default function SceneLights() {
 
     const directHelper = useControls("DirectHelper", {
             visible: { value: false },
-            size: { value: 0.2, min: 0.01, max: 5, step: 0.01 },
+            size: { value: 3.81, min: 0.01, max: 5, step: 0.01 },
+            color: {value: "#00ffe2"},
         },
         { collapsed: true }
     );
 
     const pointLightRef = useRef<THREE.PointLight>(null!);
     const spotLightRef = useRef<THREE.SpotLight>(null!);
-    const spot2Ref = useRef<THREE.SpotLight>(null!);
+    const spotBookRef = useRef<THREE.SpotLight>(null!);
     const directLightRef = useRef<THREE.DirectionalLight>(null!);
 
 
@@ -99,9 +122,9 @@ export default function SceneLights() {
     }, [spot.target]);
 
     useEffect(() => {
-        if (spot2Ref.current) {
-            spot2Ref.current.target.position.set(1.7, 0.2, -1.5);
-            spot2Ref.current.target.updateMatrixWorld();
+        if (spotBookRef.current) {
+            spotBookRef.current.target.position.set(...spotBook.target);
+            spotBookRef.current.target.updateMatrixWorld();
         }
     }, []);
 
@@ -120,11 +143,18 @@ export default function SceneLights() {
         spotHelper.color,
     );
 
+    useHelper(
+        spotBookHelper.visible ? spotBookRef : null,
+        THREE.SpotLightHelper,
+        spotBookHelper.color,
+    )
+
     // Direct Helper
     useHelper(
         directHelper.visible ? directLightRef : null,
         THREE.DirectionalLightHelper,
         directHelper.size,
+        directHelper.color,
     )
 
     return (
@@ -146,7 +176,7 @@ export default function SceneLights() {
                 decay={point.decay}
             />
 
-            {/*Bookshelf Spotlight*/}
+            {/*MainScene Spotlight*/}
             <SpotLight
                 ref={spotLightRef}
                 visible={spot.visible}
@@ -170,14 +200,15 @@ export default function SceneLights() {
 
             {/*BookLamp Spotlight*/}
             <SpotLight
-                visible={true}
-                color={"#a0832a"}
-                intensity={26.94}
-                position={[3.0, 5.2, -1.0]}
-                distance={7.1}
-                decay={0.8}
-                angle={0.49}
-                penumbra={0.12}
+                ref={spotBookRef}
+                visible={spotBook.visible}
+                color={spotBook.color}
+                intensity={spotBook.intensity}
+                position={spotBook.position}
+                distance={spotBook.distance}
+                decay={spotBook.decay}
+                angle={spotBook.angle}
+                penumbra={spotBook.penumbra}
             />
         </>
     );

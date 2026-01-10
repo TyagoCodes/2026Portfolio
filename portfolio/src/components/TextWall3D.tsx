@@ -41,7 +41,7 @@ export default function TextWall3D()
                     bevelSegments={ 5 }
                 >
                     Santiago's Portfolio
-                    <meshStandardMaterial color={"#abce95"} />
+                    <meshMatcapMaterial color={"#90D5FF"} />
                 </Text3D>
             </Float>
         </mesh>

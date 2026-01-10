@@ -10,15 +10,15 @@ export default function BookDebug() {
     const { bookScale, bookPosX, bookPosY, bookPosZ, bookRotX, bookRotY, bookRotZ, floatSpeed, floatHeight } = useControls(
         "Book Model Debug",
         {
-            bookScale: { value: 3.8, min: 0.1, max: 10, step: 0.1 },
-            bookPosX: { value: 4.8, min: -10, max: 10, step: 0.1 },
-            bookPosY: { value: 3.9, min: -10, max: 10, step: 0.1 },
-            bookPosZ: { value: -0.1, min: -10, max: 10, step: 0.1 },
-            bookRotX: { value: 0.29, min: -Math.PI, max: Math.PI, step: 0.01 },
-            bookRotY: { value: -1.20, min: -Math.PI, max: Math.PI, step: 0.01 },
-            bookRotZ: { value: -0.20, min: -Math.PI, max: Math.PI, step: 0.01 },
+            bookScale: { value: 5.6, min: 0.1, max: 10, step: 0.1 },
+            bookPosX: { value: 2.6, min: -10, max: 10, step: 0.1 },
+            bookPosY: { value: 3.1, min: -10, max: 10, step: 0.1 },
+            bookPosZ: { value: -1.4, min: -10, max: 10, step: 0.1 },
+            bookRotX: { value: -0.30, min: -Math.PI, max: Math.PI, step: 0.01 },
+            bookRotY: { value: 0.55, min: -Math.PI, max: Math.PI, step: 0.01 },
+            bookRotZ: { value: 0.35, min: -Math.PI, max: Math.PI, step: 0.01 },
             floatSpeed: { value: 1.5, min: 0.1, max: 5, step: 0.1 },
-            floatHeight: { value: 0.3, min: 0.05, max: 2, step: 0.05 },
+            floatHeight: { value: 0.30, min: 0.05, max: 2, step: 0.05 },
         },
         { collapsed: true }
     )
@@ -28,8 +28,14 @@ export default function BookDebug() {
             const t = clock.getElapsedTime();
             meshRef.current.position.y = bookPosY + Math.sin(t * floatSpeed) * floatHeight;
             meshRef.current.position.z = bookPosZ + Math.sin(t * -3) * 0.2;
+
+            const cycleTime = t % 15;
+            if (cycleTime < 2) {
+                meshRef.current.rotation.x = bookRotX + (cycleTime / 2.2) * Math.PI * 2;
+            }
         }
     });
+
 
     return (
         <mesh
