@@ -3,8 +3,8 @@ import {TextureLoader} from "three";
 import {useFrame, useLoader} from "@react-three/fiber";
 import {useMemo} from "react";
 
-import coffeeSmokeVertexShader from '../shaders/coffeeSmoke/vertex.glsl?raw';
-import coffeeSmokeFragmentShader from '../shaders/coffeeSmoke/fragment.glsl?raw';
+import coffeeSmokeVertexShader from '../../shaders/coffeeSmoke/vertex.glsl?raw';
+import coffeeSmokeFragmentShader from '../../shaders/coffeeSmoke/fragment.glsl?raw';
 
 export default  function CoffeeSmoke() {
 

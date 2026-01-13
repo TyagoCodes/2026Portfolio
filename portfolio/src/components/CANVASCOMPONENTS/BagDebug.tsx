@@ -7,7 +7,7 @@ export default function BagDebug() {
         {
             bagScale: { value: 0.2, min: 0.1, max: 10, step: 0.1 },
             bagPosX: { value: 0.1, min: -10, max: 10, step: 0.1 },
-            bagPosY: { value: -0.1, min: -10, max: 10, step: 0.1 },
+            bagPosY: { value: -0.28, min: -10, max: 10, step: 0.1 },
             bagPosZ: { value: 4.7, min: -10, max: 10, step: 0.1 },
             bagRotX: { value: 0.00, min: -Math.PI, max: Math.PI, step: 0.01 },
             bagRotY: { value: -1.90, min: -Math.PI, max: Math.PI, step: 0.01 },

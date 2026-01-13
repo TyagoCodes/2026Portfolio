@@ -11,6 +11,8 @@ import LaptopModelDebug from "./LaptopModelDebug.tsx";
 import ButterflyParticles from "./ButterflyParticles.tsx";
 import CoffeeSmoke from "./CoffeeSmoke.tsx";
 import Moon from "./Moon.tsx";
+import Phone from "./Phone.tsx";
+import Shiba from "./Shiba.tsx";
 
 
 export default function Scene()
@@ -29,9 +31,7 @@ export default function Scene()
             <TextWall3D />
 
             {/*TABLE*/}
-            <mesh scale={[5,5,5]} position={[0,0.8,2]}>
-                <Table />
-            </mesh>
+            <Table/>
 
             {/*BAG (WORK)*/}
             <BagDebug/>
@@ -48,11 +48,17 @@ export default function Scene()
             {/*COFFEE SMOKE*/}
             <CoffeeSmoke/>
 
+            {/*PHONE*/}
+            <Phone/>
+
+            {/*SHIBA*/}
+            <Shiba/>
+
             {/*MOON*/}
             <Moon/>
 
             {/*FOG*/}
-            <fogExp2 args={["#ffffff", 4]}/>
+            {/*<fogExp2 args={["#ffffff", 4]}/>*/}
         </>
     )
 }

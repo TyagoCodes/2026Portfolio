@@ -1,6 +1,5 @@
 import { useControls } from 'leva'
 import LaptopModel from "./LaptopModel.tsx";
-import {Html} from "@react-three/drei";
 
 export default function LaptopModelDebug() {
     const { Scale, PosX, PosY, PosZ, RotX, RotY, RotZ } = useControls(
@@ -22,17 +21,6 @@ export default function LaptopModelDebug() {
             scale={[Scale, Scale, Scale]}
             position={[PosX, PosY, PosZ]}
             rotation={[RotX, RotY, RotZ]}>
-
-            <Html
-                transform
-                distanceFactor={1.2}
-                position={[0,0,0]}
-            >
-                {/*<div className={"bg-cyan-400 text-"}>*/}
-                {/*   <h1>Laptop Screen html test</h1>*/}
-                {/*</div>*/}
-            </Html>
-
             <LaptopModel/>
         </mesh>
     )

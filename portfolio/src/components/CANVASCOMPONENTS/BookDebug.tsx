@@ -3,6 +3,7 @@ import BookModel from "./BookModel.tsx";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
+import {Text3D} from "@react-three/drei";
 
 export default function BookDebug() {
     const meshRef = useRef<THREE.Mesh>(null!);
@@ -38,6 +39,8 @@ export default function BookDebug() {
 
 
     return (
+
+    <>
         <mesh
             ref={meshRef}
             scale={[bookScale, bookScale, bookScale]}
@@ -46,5 +49,25 @@ export default function BookDebug() {
         >
             <BookModel />
         </mesh>
+
+
+        <Text3D
+            font={"/IrishGrover_Regular.json"}
+            scale={[0.34,0.34,0.34]}
+            position={[1.7, 4.2, -1.55]}
+            rotation={[0, Math.PI * 1.93 , -0.16]}
+            size={ 0.75 }
+            height={ 0.2 }
+            curveSegments={ 12 }
+            bevelEnabled
+            bevelThickness={ 0.1 }
+            bevelSize={ 0.01 }
+            bevelOffset={ 0.001 }
+            bevelSegments={ 5 }
+        >
+            Education
+            <meshMatcapMaterial color={"#90D5FF"} />
+        </Text3D>
+    </>
     )
 }
