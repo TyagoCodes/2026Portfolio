@@ -1,4 +1,4 @@
-import {Float, Text3D, useGLTF} from "@react-three/drei";
+import {Text3D, useGLTF} from "@react-three/drei";
 
 export default function Phone() {
     const gltf = useGLTF("iphone_14_pro.glb");
@@ -8,30 +8,24 @@ export default function Phone() {
                 <primitive object={gltf.scene} />
             </mesh>
 
-            <Float
-                speed={0.3}
-                rotationIntensity={0.3}
-                floatIntensity={0.3}
-                floatingRange={[-0.01, 0.01]}
+
+            <Text3D
+                font={"/IrishGrover_Regular.json"}
+                scale={[0.2,0.2, 0.2]}
+                position={[-0.38, 2, 3.3]}
+                rotation={[0, Math.PI * 2, 0]}
+                size={ 0.75 }
+                height={ 0.2 }
+                curveSegments={ 12 }
+                bevelEnabled
+                bevelThickness={ 0.1 }
+                bevelSize={ 0.01 }
+                bevelOffset={ 0.001 }
+                bevelSegments={ 5 }
             >
-                <Text3D
-                    font={"/IrishGrover_Regular.json"}
-                    scale={[0.2,0.2, 0.2]}
-                    position={[-0.46, 1.8, 3.3]}
-                    rotation={[0, Math.PI * 2, 0]}
-                    size={ 0.75 }
-                    height={ 0.2 }
-                    curveSegments={ 12 }
-                    bevelEnabled
-                    bevelThickness={ 0.1 }
-                    bevelSize={ 0.01 }
-                    bevelOffset={ 0.001 }
-                    bevelSegments={ 5 }
-                >
-                    CV
-                    <meshMatcapMaterial color={"#90D5FF"} />
-                </Text3D>
-            </Float>
+                CV
+                <meshMatcapMaterial color={"#90D5FF"} />
+            </Text3D>
         </>
     );
 }
