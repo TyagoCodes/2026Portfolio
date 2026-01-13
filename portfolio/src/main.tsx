@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Leva collapsed={true}/>
 
-      {/*TO WORK ON THIS BECAUSE OVERFLOWS TO THE SIDES ON MOBILE*/}
+      {/*TO WORK ON THIS MAYBE IF I WANT A HERO SECTION*/}
       {/*<div className={"flex flex-row justify-between bg-blue-950"}>*/}
       {/*    <div className={"m-10 border border-b-blue-950 bg-gray-400 "}>*/}
       {/*        <h1>MY CV</h1>*/}
