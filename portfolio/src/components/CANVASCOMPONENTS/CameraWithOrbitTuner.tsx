@@ -4,10 +4,12 @@ import { folder, useControls } from "leva";
 import * as THREE from "three";
 import { OrbitControls } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import {useUiLock} from "../../store/useUiLock.ts";
 
 export default function CameraWithOrbitTuner() {
     const { camera } = useThree();
     const controlsRef = useRef<OrbitControlsImpl | null>(null);
+    const locked = useUiLock((s) => s.locked)
 
     const { x, y, z, tx, ty, tz } = useControls(
         "Orbit Camera",
@@ -52,6 +54,7 @@ export default function CameraWithOrbitTuner() {
             maxPolarAngle={THREE.MathUtils.degToRad(80)}
             minAzimuthAngle={THREE.MathUtils.degToRad(-45)}
             maxAzimuthAngle={THREE.MathUtils.degToRad(45)}
+            enabled={!locked}
         />
     );
 }

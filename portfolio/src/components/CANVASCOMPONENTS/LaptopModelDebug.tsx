@@ -17,11 +17,13 @@ export default function LaptopModelDebug() {
     )
 
     return (
-        <mesh
-            scale={[Scale, Scale, Scale]}
-            position={[PosX, PosY, PosZ]}
-            rotation={[RotX, RotY, RotZ]}>
-            <LaptopModel/>
-        </mesh>
+        <>
+            <mesh
+                scale={[Scale, Scale, Scale]}
+                position={[PosX, PosY, PosZ]}
+                rotation={[RotX, RotY, RotZ]}>
+                <LaptopModel/>
+            </mesh>
+        </>
     )
 }

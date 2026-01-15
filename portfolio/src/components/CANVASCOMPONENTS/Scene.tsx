@@ -13,6 +13,8 @@ import CoffeeSmoke from "./CoffeeSmoke.tsx";
 import Moon from "./Moon.tsx";
 import Phone from "./Phone.tsx";
 import Shiba from "./Shiba.tsx";
+import {OpenButton3D} from "../HTMLCOMPONENTS/OpenButton3D.tsx";
+import {ViewerCard3D} from "../HTMLCOMPONENTS/ViewerCard3D.tsx";
 
 
 export default function Scene()
@@ -41,6 +43,7 @@ export default function Scene()
 
             {/*LAPTOP*/}
             <LaptopModelDebug/>
+            <OpenButton3D source={"projects"} id={"portfolio"}/>
 
             {/*BUTTERFLY PARTICLES*/}
             <ButterflyParticles/>
@@ -59,6 +62,9 @@ export default function Scene()
 
             {/*FOG*/}
             {/*<fogExp2 args={["#ffffff", 4]}/>*/}
+
+            {/*CARD*/}
+            <ViewerCard3D/>
         </>
     )
 }
