@@ -37,13 +37,21 @@ export default function Scene()
 
             {/*BAG (WORK)*/}
             <BagDebug/>
+            <group scale={[0.5,0.5,0.5]} position={[1.7,0.55,5.1]} rotation={[0,-0.3,0]}>
+                <OpenButton3D source={"experience"} id={"Work1"}/>
+            </group>
 
             {/*FLYING BOOK*/}
             <BookDebug/>
+            <group scale={[0.5,0.5,0.5]} position={[4.5,4,-2]}>
+                <OpenButton3D source={"education"} id={"school1"}/>
+            </group>
 
             {/*LAPTOP*/}
             <LaptopModelDebug/>
-            <OpenButton3D source={"projects"} id={"portfolio"}/>
+            <group scale={[0.5,0.5,0.5]} position={[2,1.5,2]}>
+                <OpenButton3D source={"projects"} id={"portfolio"}/>
+            </group>
 
             {/*BUTTERFLY PARTICLES*/}
             <ButterflyParticles/>

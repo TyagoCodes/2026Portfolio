@@ -27,15 +27,25 @@ export function ViewerCard3D() {
     }
 
     const tagColors: Record<string, string> = {
+        Swift: 'bg-orange-800 text-white',
+        ReactNative: 'bg-blue-300 text-black',
+        Kotlin: 'bg-purple-700 text-white',
+        Firestore: 'bg-red-700 text-white',
         TypeScript: 'bg-blue-500 text-white',
         R3F: 'bg-yellow-300 text-black',
         React: 'bg-cyan-400 text-black',
         Tailwind: 'bg-teal-500 text-white',
         Threejs: 'bg-yellow-300 text-black',
+        SQL: 'bg-red-700 text-white',
+        Database: 'bg-green-800 text-white',
+        SvelteKit: 'bg-orange-700 text-white',
+        Node: 'bg-yellow-600 text-black',
+        Supabase: 'bg-green-400 text-black',
+        Unity: 'bg-gray-900 text-gray',
     }
 
     return (
-        <Html transform position={[0, 2, 0]} scale={[0.6,0.6,0.6]}>
+        <Html transform position={[-1.6, 2.8, 0]} scale={[0.6,0.6,0.6]} rotation={[0,0.3,0]}>
             <div
                 className="
                 pointer-events-auto
@@ -43,8 +53,11 @@ export function ViewerCard3D() {
                 sm:w-72
                 md:w-80
                 lg:w-96
+                max-h-96
+                sm:max-h-full
+                overflow-y-auto
                 rounded-xl
-                bg-neutral-900/90
+                bg-neutral-900/97
                 backdrop-blur-md
                 border border-white/10
                 shadow-2xl
@@ -52,6 +65,7 @@ export function ViewerCard3D() {
                 p-4
                 sm:p-5
                 flex flex-col gap-4
+                z-20
                 "
                 onPointerDown={lock}
                 onPointerUp={unlock}
@@ -62,7 +76,7 @@ export function ViewerCard3D() {
             >
                 <div className="flex justify-between items-start">
                     <h2 className="text-lg font-semibold">{item.name}</h2>
-                    <button onClick={close} className="text-white/50 hover:text-white">
+                    <button onClick={close} className="text-white/50 hover:text-white text-2xl">
                         ✕
                     </button>
                 </div>
@@ -74,6 +88,22 @@ export function ViewerCard3D() {
                         className="w-full h-40 object-cover rounded-md mt-2"
                     />
                 )}
+
+                {item.video && (
+                    <div className="w-full">
+                        <video
+                            src={item.video}
+                            controls
+                            autoPlay
+                            muted
+                            className="w-full h-40 sm:h-60 object-contain rounded-md mt-2"
+                        />
+                    </div>
+                )}
+
+
+
+
 
                 <p className="text-sm text-white/70">{item.description}</p>
 

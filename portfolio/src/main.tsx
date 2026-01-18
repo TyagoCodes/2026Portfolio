@@ -12,6 +12,8 @@ import {Loader} from "@react-three/drei";
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Leva collapsed={true} hidden={true}/>
+
+
     <div className={"w-full h-screen m-0 overflow-hidden bg-gray-950"}>
       <Canvas
         flat

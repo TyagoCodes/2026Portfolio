@@ -2,10 +2,11 @@ import type {ViewerItem} from './types'
 
 export const education: ViewerItem[] = [
     {
-        id: 'school',
-        name: 'Ahuntsic',
+        id: 'school1',
+        name: 'Ahuntsic College',
         description: 'Mobile Developer AEC',
-        site: 'https://padel.app',
+        image: 'images/ahuntsic.png',
+        site: 'https://www.collegeahuntsic.qc.ca/formation-continue/aec-intensives/developpement-dapplications-mobiles',
         tags: ['Fullstack', 'Mobile Dev', 'AEC'],
     },
 ]

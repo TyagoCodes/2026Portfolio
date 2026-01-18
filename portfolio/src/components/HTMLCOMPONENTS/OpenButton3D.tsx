@@ -16,14 +16,16 @@ export function OpenButton3D({ source, id }: Props) {
     return (
         <Html transform>
             <div
-                className="pointer-events-auto"
+                className="pointer-events-auto z-10"
                 onPointerDown={lock}
                 onPointerUp={unlock}
+                onPointerCancel={unlock}
+                onTouchCancel={unlock}
                 onTouchStart={lock}
                 onTouchEnd={unlock}
             >
                 <button
-                    className="px-3 py-1.5 rounded-md bg-indigo-600 text-white text-sm"
+                    className="px-3 py-1.5 rounded-md bg-neutral-900/90 text-yellow-300 text-sm"
                     onClick={() => open(source, id)}
                     onPointerDown={(e) => e.stopPropagation()}
                     onTouchStart={(e) => e.stopPropagation()}

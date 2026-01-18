@@ -12,11 +12,11 @@ export const projects: ViewerItem[] = [
     },
     {
         id: 'Tennis',
-        name: 'TennisApp',
-        image: '',
-        description: 'React Three Fiber portfolio',
-        repo: '',
-        site: '',
-        tags: ['R3F', 'TypeScript', 'Three.js'],
+        name: 'Tennis Meetings App (Squadra)',
+        video: 'videos/squadra.mp4',
+        description: 'Squadra was my end of program project where I was the team lead and with a team of 4 and using agile methods, we created an app for casual tennis players to meet at local parks using auth, match invitations, push notifications etc. It was all done trough ReactNative Expo for android and web and Native iOS it all communicated trough Firestore.',
+        site: 'https://github.com/HugoLapointeAhuntsic/Projet_Integrateur_React_HSES',
+        repo: 'https://github.com/StrawberryBeds/GitGorilles_Swift',
+        tags: ['Swift', 'ReactNative', 'TypeScript', "Kotlin", 'Firestore', "Tailwind"],
     },
 ]
