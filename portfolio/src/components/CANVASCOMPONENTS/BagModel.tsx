@@ -1,4 +1,4 @@
-import {Float, Text3D, useGLTF} from "@react-three/drei";
+import {useGLTF} from "@react-three/drei";
 import { useEffect } from "react";
 import * as THREE from "three";
 
@@ -15,35 +15,8 @@ export default function BagModel() {
     }, [gltf]);
 
     return (
-        <>
-            <mesh>
-                <primitive object={gltf.scene} />
-            </mesh>
-
-            <Float
-                speed={1}
-                rotationIntensity={1}
-                floatIntensity={1}
-                floatingRange={[-0.01, 0.2]}
-            >
-                <Text3D
-                    font={"/IrishGrover_Regular.json"}
-                    scale={[1,1,1]}
-                    position={[0.15, 8, 2]}
-                    rotation={[0, Math.PI / 1.9 ,0]}
-                    size={ 0.75 }
-                    height={ 0.2 }
-                    curveSegments={ 12 }
-                    bevelEnabled
-                    bevelThickness={ 0.1 }
-                    bevelSize={ 0.01 }
-                    bevelOffset={ 0.001 }
-                    bevelSegments={ 5 }
-                >
-                    Experience
-                    <meshMatcapMaterial color={"#90D5FF"} />
-                </Text3D>
-            </Float>
-        </>
+        <mesh>
+            <primitive object={gltf.scene} />
+        </mesh>
     );
 }

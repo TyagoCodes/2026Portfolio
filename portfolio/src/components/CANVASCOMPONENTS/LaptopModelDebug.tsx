@@ -1,5 +1,8 @@
 import { useControls } from 'leva'
 import LaptopModel from "./LaptopModel.tsx";
+import { Text3D } from "@react-three/drei";
+import { useViewerStore } from "../../store/useViewerStore";
+import { useUiLock } from "../../store/useUiLock";
 
 export default function LaptopModelDebug() {
     const { Scale, PosX, PosY, PosZ, RotX, RotY, RotZ } = useControls(
@@ -16,6 +19,10 @@ export default function LaptopModelDebug() {
         {collapsed: true}
     )
 
+    const open = useViewerStore((s) => s.open);
+    const lock = useUiLock((s) => s.lock);
+    const unlock = useUiLock((s) => s.unlock);
+
     return (
         <>
             <mesh
@@ -24,6 +31,31 @@ export default function LaptopModelDebug() {
                 rotation={[RotX, RotY, RotZ]}>
                 <LaptopModel/>
             </mesh>
+
+            <group
+                onClick={() => open("projects", "portfolio")}
+                onPointerDown={lock}
+                onPointerUp={unlock}
+                onPointerCancel={unlock}
+            >
+                <Text3D
+                    font={"/IrishGrover_Regular.json"}
+                    scale={[0.34, 0.34, 0.34]}
+                    position={[0.2, 2.7, 2.8]}
+                    rotation={[0, Math.PI * 1.93, -0.16]}
+                    size={0.75}
+                    height={0.2}
+                    curveSegments={12}
+                    bevelEnabled
+                    bevelThickness={0.1}
+                    bevelSize={0.01}
+                    bevelOffset={0.001}
+                    bevelSegments={5}
+                >
+                    Projects
+                    <meshMatcapMaterial color={"#FF69B4"} />
+                </Text3D>
+            </group>
         </>
     )
 }

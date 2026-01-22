@@ -16,7 +16,7 @@ export function OpenButton3D({ source, id }: Props) {
     return (
         <Html transform>
             <div
-                className="pointer-events-auto z-10"
+                className="pointer-events-auto"
                 onPointerDown={lock}
                 onPointerUp={unlock}
                 onPointerCancel={unlock}

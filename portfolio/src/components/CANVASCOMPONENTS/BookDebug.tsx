@@ -4,6 +4,8 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 import {Text3D} from "@react-three/drei";
+import { useViewerStore } from "../../store/useViewerStore";
+import { useUiLock } from "../../store/useUiLock";
 
 export default function BookDebug() {
     const meshRef = useRef<THREE.Mesh>(null!);
@@ -24,6 +26,10 @@ export default function BookDebug() {
         { collapsed: true }
     )
 
+    const open = useViewerStore((s) => s.open);
+    const lock = useUiLock((s) => s.lock);
+    const unlock = useUiLock((s) => s.unlock);
+
     useFrame(({ clock }) => {
         if (meshRef.current) {
             const t = clock.getElapsedTime();
@@ -37,37 +43,41 @@ export default function BookDebug() {
         }
     });
 
-
     return (
+        <>
+            <mesh
+                ref={meshRef}
+                scale={[bookScale, bookScale, bookScale]}
+                position={[bookPosX, bookPosY, bookPosZ]}
+                rotation={[bookRotX, bookRotY, bookRotZ]}
+            >
+                <BookModel />
+            </mesh>
 
-    <>
-        <mesh
-            ref={meshRef}
-            scale={[bookScale, bookScale, bookScale]}
-            position={[bookPosX, bookPosY, bookPosZ]}
-            rotation={[bookRotX, bookRotY, bookRotZ]}
-        >
-            <BookModel />
-        </mesh>
-
-
-        <Text3D
-            font={"/IrishGrover_Regular.json"}
-            scale={[0.34,0.34,0.34]}
-            position={[1.7, 4.2, -1.55]}
-            rotation={[0, Math.PI * 1.93 , -0.16]}
-            size={ 0.75 }
-            height={ 0.2 }
-            curveSegments={ 12 }
-            bevelEnabled
-            bevelThickness={ 0.1 }
-            bevelSize={ 0.01 }
-            bevelOffset={ 0.001 }
-            bevelSegments={ 5 }
-        >
-            Education
-            <meshMatcapMaterial color={"#90D5FF"} />
-        </Text3D>
-    </>
+            <group
+                onClick={() => open("education", "school1")}
+                onPointerDown={lock}
+                onPointerUp={unlock}
+                onPointerCancel={unlock}
+            >
+                <Text3D
+                    font={"/IrishGrover_Regular.json"}
+                    scale={[0.34,0.34,0.34]}
+                    position={[1.7, 4.2, -1.55]}
+                    rotation={[0, Math.PI * 1.93 , -0.16]}
+                    size={ 0.75 }
+                    height={ 0.2 }
+                    curveSegments={ 12 }
+                    bevelEnabled
+                    bevelThickness={ 0.1 }
+                    bevelSize={ 0.01 }
+                    bevelOffset={ 0.001 }
+                    bevelSegments={ 5 }
+                >
+                    Education
+                    <meshMatcapMaterial color={"#90D5FF"} />
+                </Text3D>
+            </group>
+        </>
     )
 }

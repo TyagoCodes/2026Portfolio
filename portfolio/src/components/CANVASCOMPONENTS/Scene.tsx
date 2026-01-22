@@ -13,7 +13,6 @@ import CoffeeSmoke from "./CoffeeSmoke.tsx";
 import Moon from "./Moon.tsx";
 import Phone from "./Phone.tsx";
 import Shiba from "./Shiba.tsx";
-import {OpenButton3D} from "../HTMLCOMPONENTS/OpenButton3D.tsx";
 import {ViewerCard3D} from "../HTMLCOMPONENTS/ViewerCard3D.tsx";
 
 
@@ -37,21 +36,12 @@ export default function Scene()
 
             {/*BAG (WORK)*/}
             <BagDebug/>
-            <group scale={[0.5,0.5,0.5]} position={[1.7,0.55,5.1]} rotation={[0,-0.3,0]}>
-                <OpenButton3D source={"experience"} id={"Work1"}/>
-            </group>
 
             {/*FLYING BOOK*/}
             <BookDebug/>
-            <group scale={[0.5,0.5,0.5]} position={[4.5,4,-2]}>
-                <OpenButton3D source={"education"} id={"school1"}/>
-            </group>
 
             {/*LAPTOP*/}
             <LaptopModelDebug/>
-            <group scale={[0.5,0.5,0.5]} position={[2,1.5,2]}>
-                <OpenButton3D source={"projects"} id={"portfolio"}/>
-            </group>
 
             {/*BUTTERFLY PARTICLES*/}
             <ButterflyParticles/>
@@ -60,7 +50,8 @@ export default function Scene()
             <CoffeeSmoke/>
 
             {/*PHONE*/}
-            <Phone/>
+            <Phone source={"iOS"} id={"iOS2"}/>
+
 
             {/*SHIBA*/}
             <Shiba/>

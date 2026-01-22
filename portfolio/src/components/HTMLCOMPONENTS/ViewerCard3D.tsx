@@ -42,6 +42,7 @@ export function ViewerCard3D() {
         Node: 'bg-yellow-600 text-black',
         Supabase: 'bg-green-400 text-black',
         Unity: 'bg-gray-900 text-gray',
+        Figma: 'bg-purple-800 text-white'
     }
 
     return (
